@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="@color/background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/number1"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_1"
+        app:layout_constraintBottom_toTopOf="@+id/number0"
+        app:layout_constraintEnd_toStartOf="@+id/number2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number4" />
+
+    <TextView
+        android:id="@+id/number2"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_2"
+        app:layout_constraintBottom_toTopOf="@+id/dot"
+        app:layout_constraintEnd_toStartOf="@+id/number3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/number1"
+        app:layout_constraintTop_toBottomOf="@+id/number5" />
+
+    <TextView
+        android:id="@+id/number3"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_3"
+        app:layout_constraintBottom_toTopOf="@+id/equal"
+        app:layout_constraintEnd_toStartOf="@+id/separator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/number2"
+        app:layout_constraintTop_toBottomOf="@+id/number6" />
+
+    <TextView
+        android:id="@+id/number4"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_4"
+        app:layout_constraintBottom_toTopOf="@+id/number1"
+        app:layout_constraintEnd_toStartOf="@+id/number5"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number7" />
+
+    <TextView
+        android:id="@+id/number5"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_5"
+        app:layout_constraintBottom_toTopOf="@+id/number2"
+        app:layout_constraintEnd_toStartOf="@+id/number6"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/number4"
+        app:layout_constraintTop_toBottomOf="@+id/number8" />
+
+    <TextView
+        android:id="@+id/number6"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_6"
+        app:layout_constraintBottom_toTopOf="@+id/number3"
+        app:layout_constraintEnd_toStartOf="@+id/separator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/number5"
+        app:layout_constraintTop_toBottomOf="@+id/number9" />
+
+    <TextView
+        android:id="@+id/number7"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_7"
+        app:layout_constraintBottom_toTopOf="@+id/number4"
+        app:layout_constraintEnd_toStartOf="@+id/number8"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/number8"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_8"
+        app:layout_constraintBottom_toTopOf="@+id/number5"
+        app:layout_constraintEnd_toStartOf="@+id/number9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/number7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/number9"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_9"
+        app:layout_constraintBottom_toTopOf="@+id/number6"
+        app:layout_constraintEnd_toStartOf="@+id/separator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/number8"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/number0"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/_0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/dot"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/number1" />
+
+    <TextView
+        android:id="@+id/equal"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/symbol_equals"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/separator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/dot"
+        app:layout_constraintTop_toBottomOf="@+id/number3" />
+
+    <TextView
+        android:id="@+id/dot"
+        style="@style/NeutralButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/symbol_dot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/equal"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/number0"
+        app:layout_constraintTop_toBottomOf="@+id/number2" />
+
+    <TextView
+        android:id="@+id/delete"
+        style="@style/AccentButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/symbol_delete"
+        app:layout_constraintBottom_toTopOf="@+id/divide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/separator"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/plus"
+        style="@style/AccentButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/symbol_plus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/separator"
+        app:layout_constraintTop_toBottomOf="@+id/minus" />
+
+    <TextView
+        android:id="@+id/minus"
+        style="@style/AccentButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/symbol_minus"
+        app:layout_constraintBottom_toTopOf="@+id/plus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/separator"
+        app:layout_constraintTop_toBottomOf="@+id/multiply" />
+
+    <TextView
+        android:id="@+id/multiply"
+        style="@style/AccentButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/symbol_multiply"
+        app:layout_constraintBottom_toTopOf="@+id/minus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/separator"
+        app:layout_constraintTop_toBottomOf="@+id/divide" />
+
+    <TextView
+        android:id="@+id/divide"
+        style="@style/AccentButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/symbol_divide"
+        app:layout_constraintBottom_toTopOf="@+id/multiply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/separator"
+        app:layout_constraintTop_toBottomOf="@+id/delete" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <View
+        android:id="@+id/separator"
+        android:layout_width="1dp"
+        android:layout_height="0dp"
+        android:background="@color/separator"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guideline"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="299dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
