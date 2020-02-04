@@ -20,8 +20,16 @@ class KeyboardFragment : BaseFragment(), View.OnClickListener {
         val views = listOf(
             number0, number1, number2, number3, number4,
             number5, number6, number7, number8, number9,
-            equal, dot, delete, plus, minus, multiply, divide
+            dot, plus, minus, multiply, divide
         )
+
+        equal.setOnClickListener { getViewModel()?.onEqualsClick() }
+
+        delete.setOnClickListener { getViewModel()?.onDeleteClick() }
+        delete.setOnLongClickListener {
+            getViewModel()?.onDeleteLongClick()
+            true
+        }
 
         views.forEach { it.setOnClickListener(this) }
     }
@@ -33,8 +41,9 @@ class KeyboardFragment : BaseFragment(), View.OnClickListener {
             getString(R.string.symbol_minus) -> '-'
             getString(R.string.symbol_plus) -> '+'
             getString(R.string.symbol_multiply) -> '*'
+            "," -> '.'
             else -> item.first()
         }
-        getViewModel()?.onClickSymbol(formattedSymbol)
+        getViewModel()?.onSymbolClick(formattedSymbol)
     }
 }

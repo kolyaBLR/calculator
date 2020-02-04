@@ -23,8 +23,7 @@ class Calculator {
                         symbolStack.peek()
                     ) && stack.size > 1
                 ) {
-                    calculate(symbol, stack)
-                    symbolStack.pop()
+                    calculate(symbolStack, stack)
                 }
                 symbolStack.push(symbol)
             } else {
@@ -34,12 +33,21 @@ class Calculator {
         if (temp.isNotEmpty()) {
             stack.push(temp.toDouble())
         }
-        return 0.0
+        while (stack.size != 1) {
+            calculate(symbolStack, stack)
+        }
+        return stack.pop()
     }
 
-    private fun calculate(symbol: Char, stack: Stack<Double>) {
+    private fun calculate(symbolStack: Stack<Char>, stack: Stack<Double>) {
         val second = stack.pop()
-        val first = stack.pop()
+        var first = stack.pop()
+        val symbol = symbolStack.pop()
+        if (symbolStack.isNotEmpty() && symbolStack.peek() == '-') {
+            symbolStack.pop()
+            symbolStack.push('+')
+            first *= -1
+        }
         val value = when (symbol) {
             '/' -> first.div(second)
             '*' -> first * second
@@ -47,6 +55,7 @@ class Calculator {
             '-' -> first - second
             else -> throw Exception()
         }
+        print(String.format("%s%s%s = %s\n", first, symbol, second, value))
         stack.push(value)
     }
 
