@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.example.calculater.R
-import kotlinx.android.synthetic.main.fragment_keyboard.*
+import kotlinx.android.synthetic.main.layout_keyboard.*
 
 class KeyboardFragment : BaseFragment(), View.OnClickListener {
 
@@ -20,11 +20,11 @@ class KeyboardFragment : BaseFragment(), View.OnClickListener {
         val views = listOf(
             number0, number1, number2, number3, number4,
             number5, number6, number7, number8, number9,
-            dot, plus, minus, multiply, divide
+            dot, plus, minus, multiply, divide,
+            bracketOpen, bracketClose
         )
 
         equal.setOnClickListener { getViewModel()?.onEqualsClick() }
-
         delete.setOnClickListener { getViewModel()?.onDeleteClick() }
         delete.setOnLongClickListener {
             getViewModel()?.onDeleteLongClick()

@@ -18,11 +18,14 @@ class CoreViewModel : ViewModel() {
     }
 
     fun onSymbolClick(symbol: Char) {
-        val last = text.lastOrNull()
-        if ((last?.isSymbol() == true && symbol.isSymbol()) || !text.isDotValid(symbol)) {
+        if (isNotValid(symbol)) {
             return
         }
-        text += symbol
+        when (symbol) {
+            'S' -> text += "Sin("
+            'C' -> text += "Cos("
+            else -> text += symbol
+        }
         calculate()
     }
 
@@ -38,12 +41,22 @@ class CoreViewModel : ViewModel() {
         }
     }
 
+    private fun isNotValid(symbol: Char): Boolean {
+        val last = text.lastOrNull()
+        return (last?.isSymbol() == true && symbol.isSymbol()) || !text.isDotValid(symbol)
+    }
+
     private fun calculate(isEquals: Boolean = false) {
         try {
-            val data = calculator.format(text)
+            val formattedText = text
+                .replace("Sin", "S")
+                .replace("Cos", "C")
+
+            val data = calculator.calculate(formattedText)
             if (isEquals) {
                 text = data.toString()
             }
+
             condition.value = text
             preview.value = data.toString()
         } catch (ex: Exception) {

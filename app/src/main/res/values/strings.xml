@@ -17,4 +17,10 @@
     <string name="symbol_minus">-</string>
     <string name="symbol_multiply">x</string>
     <string name="symbol_divide">/</string>
+    <string name="open_bracket">(</string>
+    <string name="cloe_bracket">)</string>
+    <string name="symbol_bracket_open">(</string>
+    <string name="symbol_bracket_close">)</string>
+    <string name="sin">sin</string>
+    <string name="cos">cos</string>
 </resources>
