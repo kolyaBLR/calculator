@@ -51,6 +51,7 @@ class CoreViewModel : ViewModel() {
             val formattedText = text
                 .replace("Sin", "S")
                 .replace("Cos", "C")
+                .autocompleteBracket()
 
             val data = calculator.calculate(formattedText)
             if (isEquals) {
@@ -63,6 +64,10 @@ class CoreViewModel : ViewModel() {
             condition.value = text
             preview.value = ""
         }
+    }
+
+    private fun String.autocompleteBracket(): String {
+        return if (this.sumBy { if (it == '(') 1 else 0 } > this.sumBy { if (it == ')') 1 else 0 }) "$this)" else this
     }
 
     private fun Char.isDot() = this == '.'
