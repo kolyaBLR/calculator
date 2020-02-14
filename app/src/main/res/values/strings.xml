@@ -23,4 +23,9 @@
     <string name="symbol_bracket_close">)</string>
     <string name="sin">sin</string>
     <string name="cos">cos</string>
+    <string name="ms">MS</string>
+    <string name="mr">MR</string>
+    <string name="mc">MC</string>
+    <string name="m_plus">M+</string>
+    <string name="m_minus">M-</string>
 </resources>

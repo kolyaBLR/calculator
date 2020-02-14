@@ -22,7 +22,7 @@
         android:id="@+id/editorContainer"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/otherContainer"
+        app:layout_constraintBottom_toTopOf="@+id/memoryContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,8 +39,16 @@
     <FrameLayout
         android:id="@+id/otherContainer"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="32dp"
         app:layout_constraintBottom_toTopOf="@+id/keyboardContainer"
         tools:layout_editor_absoluteX="22dp" />
+
+    <FrameLayout
+        android:id="@+id/memoryContainer"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/otherContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
