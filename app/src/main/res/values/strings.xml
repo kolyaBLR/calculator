@@ -28,4 +28,16 @@
     <string name="mc">MC</string>
     <string name="m_plus">M+</string>
     <string name="m_minus">M-</string>
+    <string name="user_name">user name</string>
+    <string name="password">password</string>
+    <string name="confirm_password">confirm password</string>
+    <string name="sign_up">sign up</string>
+    <string name="log_in">log in</string>
+    <string name="user_exist">The user exist</string>
+    <string name="empty_value">You don\'t enter value</string>
+    <string name="sign_in">sign in</string>
+    <string name="back">back</string>
+    <string name="failed_auth">Login or password is invalid</string>
+    <string name="sign_out">sign out</string>
+    <string name="cancel">cancel</string>
 </resources>

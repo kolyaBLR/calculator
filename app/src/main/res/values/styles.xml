@@ -24,4 +24,18 @@
         <item name="android:textColor">@color/accent_text_color</item>
     </style>
 
+    <style name="EditTextStyle">
+        <item name="android:gravity">start|center</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:background">@color/button</item>
+        <item name="android:textColor">@color/neutral_text_color</item>
+        <item name="android:textAlignment">textStart</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="AlertDarkDialog" parent="@android:style/Theme.Material.Dialog.Alert">
+        <item name="android:textColor">@color/neutral_text_color</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
 </resources>

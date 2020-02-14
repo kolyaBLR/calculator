@@ -1,4 +1,4 @@
-package com.example.calculater.fragments
+package com.example.calculater.fragments.main
 
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
