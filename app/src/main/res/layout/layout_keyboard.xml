@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:background="@color/background">
+    tools:background="@color/button">
 
     <TextView
         android:id="@+id/number1"
@@ -150,17 +150,25 @@
         app:layout_constraintStart_toEndOf="@+id/number0"
         app:layout_constraintTop_toBottomOf="@+id/number2" />
 
-    <TextView
+    <FrameLayout
         android:id="@+id/delete"
         style="@style/AccentButtonStyle"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/symbol_delete"
         app:layout_constraintBottom_toTopOf="@+id/plus"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@id/separator"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:layout_width="24sp"
+            android:layout_height="24sp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_arrow_back_blue_24dp"
+            />
+
+    </FrameLayout>
 
     <TextView
         android:id="@+id/plus"
