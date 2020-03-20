@@ -19,8 +19,8 @@ class SignInFragment: BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         signIn.setOnClickListener {
-            val loginName = login.text.toString()
-            getAuthViewModel()?.signIn(loginName, password.text.toString())?.let { result ->
+            val loginName = login.text.toString().trim()
+            getAuthViewModel()?.signIn(loginName, password.text.toString().trim())?.let { result ->
                 when(result) {
                     AuthViewModel.SignInResult.SUCCESS -> {
                         getSessionViewModel()?.auth(loginName)

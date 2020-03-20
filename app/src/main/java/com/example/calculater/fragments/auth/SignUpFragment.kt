@@ -19,8 +19,8 @@ class SignUpFragment : BaseFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         signUp.setOnClickListener {
-            val loginName = login.text.toString()
-            getAuthViewModel()?.signUp(loginName, password.text.toString(), confirmPassword.text.toString())?.let { result ->
+            val loginName = login.text.toString().trim()
+            getAuthViewModel()?.signUp(loginName, password.text.toString().trim(), confirmPassword.text.toString())?.let { result ->
                 when (result) {
                     AuthViewModel.SignUpResult.EXIST -> {
                         Toast.makeText(it.context, R.string.user_exist, Toast.LENGTH_LONG).show()
