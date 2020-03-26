@@ -49,9 +49,22 @@ class CoreViewModel : ViewModel() {
         when (symbol) {
             'S' -> text += "Sin("
             'C' -> text += "Cos("
+            '0' -> if (isValidZero()) text += symbol
             else -> text += symbol
         }
         calculate()
+    }
+
+    private fun isValidZero(): Boolean {
+        if (text.length < 2) {
+            return !(text.length == 1 && text.first() == '0')
+        }
+
+        val preLastSymbol = text[text.length - 2]
+        if (text.last() == '0' && (preLastSymbol.isSymbol())) {
+            return false
+        }
+        return true
     }
 
     fun onDeleteLongClick() {
@@ -146,4 +159,5 @@ class CoreViewModel : ViewModel() {
     }
 
     private fun Char.isSymbol() = "/*+-".any { this == it }
+    private fun Char.isBracket() = "()".any { this == it }
 }
