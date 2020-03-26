@@ -11,8 +11,9 @@ class CoreViewModel : ViewModel() {
     private var text = ""
     private var memoryData = 0.0
 
-    val condition = MutableLiveData<String>("")
-    val preview = MutableLiveData<String>("")
+    val condition = MutableLiveData("")
+    val preview = MutableLiveData("")
+    var errorText = ""
 
     /*
     MS (Memory Save) - кнопка означает сохранить число, отображенное в данный момент на дисплее калькулятора в память.
@@ -60,9 +61,39 @@ class CoreViewModel : ViewModel() {
 
     fun onDeleteClick() {
         if (text.isNotEmpty()) {
-            text = text.removeRange(text.length - 1, text.length)
+            text = if (text.isOperator()) {
+                text.removeOperator()
+            } else {
+                text.removeRange(text.length - 1, text.length)
+            }
             calculate()
         }
+    }
+
+    private fun String.isOperator(): Boolean {
+        val sin = "Sin("
+        val cos = "Cos("
+
+        if (this.length < sin.length) {
+            return false
+        }
+
+        return this.isOperator(sin, sin.length) || this.isOperator(cos, cos.length)
+    }
+
+    private fun String.isOperator(toFind: String, size: Int): Boolean {
+        return this.indexOf(toFind, this.length - size) != -1
+    }
+
+    private fun String.removeOperator(): String {
+        val sin = "Sin("
+        val cos = "Cos("
+
+        if (this.length < sin.length) {
+            return this
+        }
+
+        return this.removeRange(this.length - sin.length, this.length)
     }
 
     private fun isNotValid(symbol: Char): Boolean {
@@ -70,7 +101,7 @@ class CoreViewModel : ViewModel() {
         return (last?.isSymbol() == true && symbol.isSymbol()) || !text.isDotValid(symbol)
     }
 
-    private fun calculate(isEquals: Boolean = false) {
+    private fun calculate(isEqualsClick: Boolean = false) {
         try {
             val formattedText = text
                 .replace("Sin", "S")
@@ -78,12 +109,18 @@ class CoreViewModel : ViewModel() {
                 .autocompleteBracket()
 
             val data = calculator.calculate(formattedText)
-            if (isEquals) {
+
+            if (isEqualsClick && data != Double.POSITIVE_INFINITY && data != Double.NEGATIVE_INFINITY) {
                 text = data.toString()
             }
 
-            condition.value = text
-            preview.value = data.toString()
+            if (data == Double.POSITIVE_INFINITY || data == Double.NEGATIVE_INFINITY) {
+                condition.value = text
+                preview.value = errorText
+            } else {
+                condition.value = text
+                preview.value = data.toString()
+            }
         } catch (ex: Exception) {
             condition.value = text
             preview.value = ""

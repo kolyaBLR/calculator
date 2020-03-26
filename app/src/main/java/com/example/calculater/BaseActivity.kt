@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProviders
 import com.example.calculater.view.models.AuthViewModel
+import com.example.calculater.view.models.CoreViewModel
 import com.example.calculater.view.models.SessionViewModel
 
 abstract class BaseActivity: AppCompatActivity() {
@@ -14,6 +15,10 @@ abstract class BaseActivity: AppCompatActivity() {
 
     protected fun getSessionViewModel(): SessionViewModel {
         return ViewModelProviders.of(this).get(SessionViewModel::class.java)
+    }
+
+    protected fun getCoreViewModel(): CoreViewModel {
+        return ViewModelProviders.of(this).get(CoreViewModel::class.java)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

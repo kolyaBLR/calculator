@@ -15,6 +15,7 @@ class MainActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportActionBar?.hide()
+        getCoreViewModel().errorText = getString(R.string.error)
 
         if (savedInstanceState == null) {
             if (getSessionViewModel().isAuth()) {

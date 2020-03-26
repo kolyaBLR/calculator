@@ -6,32 +6,41 @@
     android:layout_height="match_parent"
     tools:background="@color/background">
 
-    <EditText
-        android:id="@+id/conditionEditor"
-        style="@style/NeutralButtonStyle"
+    <ScrollView
+        android:id="@+id/scrollEditor"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="@color/colorPrimary"
-        android:gravity="center|end"
-        android:inputType="none"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:textAlignment="textEnd"
-        android:textColor="@color/neutral_text_color"
-        android:textIsSelectable="true"
         app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="500+500" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/conditionEditor"
+            style="@style/NeutralButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:gravity="center|end"
+            android:inputType="none"
+            android:orientation="vertical"
+            android:padding="16dp"
+            android:textAlignment="textEnd"
+            android:textColor="@color/neutral_text_color"
+            android:textIsSelectable="true"
+            tools:text="500+500"
+            android:importantForAutofill="no" />
+    </ScrollView>
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.65" />
 
     <TextView
         android:id="@+id/previewText"
@@ -44,7 +53,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/conditionEditor"
+        app:layout_constraintTop_toBottomOf="@+id/scrollEditor"
         tools:text="1000" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
