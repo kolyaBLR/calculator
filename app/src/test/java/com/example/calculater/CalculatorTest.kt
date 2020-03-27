@@ -93,7 +93,6 @@ class CalculatorTest {
         assertEquals(-1.0, data, 0.0)
     }
 
-
     @Test
     fun calculatePolishNotation_cos_3() {
         val converter = Calculator()
@@ -120,5 +119,19 @@ class CalculatorTest {
         val converter = Calculator()
         val data = converter.calculate("C(66)")
         assertEquals(0.406, data, 0.001)
+    }
+
+    @Test
+    fun case_2() {
+        val converter = Calculator()
+        val data = converter.calculate("6*(1+2)")
+        assertEquals(18.0, data, 0.0)
+    }
+
+    @Test
+    fun case_3() {
+        val converter = Calculator()
+        val data = converter.calculate("C(45+45)")
+        assertEquals(0.0, data, 0.0)
     }
 }

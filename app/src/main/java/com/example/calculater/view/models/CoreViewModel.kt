@@ -50,6 +50,7 @@ class CoreViewModel : ViewModel() {
             'S' -> text += "Sin("
             'C' -> text += "Cos("
             '0' -> if (isValidZero()) text += symbol
+            ')' -> if (text.lastOrNull()?.isSymbol() != true) text += symbol
             else -> text += symbol
         }
         calculate()
@@ -119,6 +120,7 @@ class CoreViewModel : ViewModel() {
             val formattedText = text
                 .replace("Sin", "S")
                 .replace("Cos", "C")
+                .autocompleteMultiplication()
                 .autocompleteBracket()
 
             val data = calculator.calculate(formattedText)
@@ -144,6 +146,27 @@ class CoreViewModel : ViewModel() {
         return if (this.sumBy { if (it == '(') 1 else 0 } > this.sumBy { if (it == ')') 1 else 0 }) "$this)" else this
     }
 
+    private fun String.autocompleteMultiplication(): String {
+        var result = ""
+        forEachIndexed { index, item ->
+            var localResult = ""
+            if (item == '(') {
+                val before = this.getOrNull(index - 1)
+                if (before?.isNumber() == true) {
+                    result += '*'
+                }
+            } else if (item == ')') {
+                val after = this.getOrNull(index + 1)
+                if (after?.isNumber() == true) {
+                    localResult += '*'
+                }
+            }
+            result += item + localResult
+        }
+        return result
+    }
+
+
     private fun Char.isDot() = this == '.'
     private fun String.isDotValid(char: Char): Boolean {
         val reversed = this.reversed()
@@ -159,5 +182,6 @@ class CoreViewModel : ViewModel() {
     }
 
     private fun Char.isSymbol() = "/*+-".any { this == it }
+    private fun Char.isNumber() = "0123456789".any { this == it }
     private fun Char.isBracket() = "()".any { this == it }
 }

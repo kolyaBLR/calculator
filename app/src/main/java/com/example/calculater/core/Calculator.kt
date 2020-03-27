@@ -47,8 +47,11 @@ class Calculator {
         if (temp.isNotEmpty()) {
             valuesStack.push(temp.toDouble())
         }
-        while (valuesStack.size != 1) {
+        while (valuesStack.size > 1) {
             calculate(symbolStack, valuesStack)
+        }
+        while (symbolStack.isNotEmpty()) {
+            calculateSinusOrCosinus(symbolStack.pop(), valuesStack)
         }
         return valuesStack.pop()
     }
