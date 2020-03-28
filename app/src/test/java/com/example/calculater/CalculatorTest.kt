@@ -122,6 +122,13 @@ class CalculatorTest {
     }
 
     @Test
+    fun case_1() {
+        val converter = Calculator()
+        val data = converter.calculate("-8+2")
+        assertEquals(-6.0, data, 0.0)
+    }
+
+    @Test
     fun case_2() {
         val converter = Calculator()
         val data = converter.calculate("6*(1+2)")
@@ -133,5 +140,19 @@ class CalculatorTest {
         val converter = Calculator()
         val data = converter.calculate("C(45+45)")
         assertEquals(0.0, data, 0.0)
+    }
+
+    @Test
+    fun case_4() {
+        val converter = Calculator()
+        val data = converter.calculate("2*(-12)")
+        assertEquals(-24.0, data, 0.0)
+    }
+
+    @Test
+    fun case_5() {
+        val converter = Calculator()
+        val data = converter.calculate("-2*(-12)")
+        assertEquals(24.0, data, 0.0)
     }
 }
